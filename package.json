@@ -17,6 +17,7 @@
     "chokidar": "^3.5.3",
     "commander": "^4.1.1",
     "concat-map": "^0.0.1",
+    "cors": "^2.8.5",
     "cssesc": "^3.0.0",
     "didyoumean": "^1.2.2",
     "dlv": "^1.1.3",

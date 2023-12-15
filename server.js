@@ -1,14 +1,36 @@
-var mysql = require('mysql');
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
 
-let count = 0;
+// Create an Express application
+const app = express();
 
-var con = mysql.createConnection({
+// Enable CORS for all routes (allow all origins)
+app.use(cors({ origin: '*' }));
+
+let topic = "allgemein";
+
+var con = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "wibso3-rIdwaz-dejrob"
+  password: "wibso3-rIdwaz-dejrob",
+  database: "questions"
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+app.get("/database", (req, res) => {
+  const query = "SELECT * FROM " + topic;
+
+  con.query(query, (error, results) => {
+    if (error) {
+      console.error("ERROR query:", error);
+      res.status(500).send("Internal server error!");
+      return;
+    }
+    res.json(results);
+  });
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

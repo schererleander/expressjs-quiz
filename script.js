@@ -1,13 +1,14 @@
-var mysql = require('mysql');
+var mysql = import("https://unpkg.com/browse/mysql@2.18.1/");
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "546678"
+  password: "wibso3-rIdwaz-dejrob"
 });
 
 con.connect(function(err) {
     if (err) throw err;
+	console.log("connected");
 });
 
 // Credit to string-similarity by aceakash
