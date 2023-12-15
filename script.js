@@ -1,7 +1,5 @@
 var mysql = require('mysql');
 
-let count = 1;
-
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -50,11 +48,15 @@ function validate(awnser, solution) {
     return false;
 }
 
+let count = 1;
+let defaultDatabase = "questions";
+let table = "allgemein";
+
 function getNextAnwser() {
     con.connect(function(err) {
         if (err) throw err;
-        con.query("USE questions;", function (err, result, fields) {
-            con.query("SELECT * FROM allgemein WHERE id = " + count, function (err, result, fields) {
+        con.query("USE " + defaultDatabase + ";", function (err, result, fields) {
+            con.query("SELECT * FROM " + table + " WHERE id = " + count, function (err, result, fields) {
                 document.getElementById("questionCount").innerText = count + " von 10 Fragen";
                 document.getElementById("questionCount").innerText = result[0].question;
 
