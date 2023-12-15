@@ -59,12 +59,12 @@ function nextAnwser() {
 }
 
 function validate() {
-    answer = document.getElementById("answerInput");
+    let answer = document.getElementById("answerInput");
     con.query("SELECT * FROM " + table + " WHERE id = " + count, function (err, result, fields) {
         solution = result[0].solution;
     });
 
-    similarity = compareTwoStrings(answer, solution);
+    let similarity = compareTwoStrings(answer, solution);
     if(similarity >= 0.8) {
         console.log("right");
         return true;
