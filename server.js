@@ -1,5 +1,7 @@
 var mysql = require('mysql');
 
+let count = 0;
+
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
