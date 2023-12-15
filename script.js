@@ -6,6 +6,10 @@ var con = mysql.createConnection({
   password: "546678"
 });
 
+con.connect(function(err) {
+    if (err) throw err;
+});
+
 // Credit to string-similarity by aceakash
 function compareTwoStrings(first, second) {
 	first = first.replace(/\s+/g, '')
@@ -40,30 +44,32 @@ function compareTwoStrings(first, second) {
 	return (2.0 * intersectionSize) / (first.length + second.length - 2);
 }
 
-function validate(awnser, solution) {
-    similarity = compareTwoStrings(awnser, solution);
-    if(similarity >= 0.8) {
-        return true;
-    }
-    return false;
-}
-
 let count = 1;
 let defaultDatabase = "questions";
 let table = "allgemein";
 
-function getNextAnwser() {
-    con.connect(function(err) {
-        if (err) throw err;
-        con.query("USE " + defaultDatabase + ";", function (err, result, fields) {
-            con.query("SELECT * FROM " + table + " WHERE id = " + count, function (err, result, fields) {
-                document.getElementById("questionCount").innerText = count + " von 10 Fragen";
-                document.getElementById("questionCount").innerText = result[0].question;
-
-            });
-        })
-      });
+function nextAnwser() {
+    con.query("USE " + defaultDatabase + ";", function () {
+        con.query("SELECT * FROM " + table + " WHERE id = " + count, function (err, result, fields) {
+            document.getElementById("questionCount").innerText = count + " von 10 Fragen";
+            document.getElementById("question").innerText = result[0].question;
+        });
+    })
 }
 
-window.onload = getNextAnwser();
-console.log("Finished");
+function validate() {
+    answer = document.getElementById("answerInput");
+    con.query("SELECT * FROM " + table + " WHERE id = " + count, function (err, result, fields) {
+        solution = result[0].solution;
+    });
+
+    similarity = compareTwoStrings(answer, solution);
+    if(similarity >= 0.8) {
+        console.log("right");
+        return true;
+    }
+    console.log("false");
+    return false;
+}
+
+window.onload = nextAnwser();
