@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-white w-screen h-screen">
+    <div class="flex flex-row h-screen justify-center items-center">
+        <div class="bg-gray-100 border m-14 border-gray-300 w-1/4 rounded-lg">
+            <div class="m-5 text-black">
+                <p class="text-2xl text-green-500">Frage hinzufügen</p>
+                <p class="text-base">Frage</p>
+                <input id="questionInput" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 placeholder-gray-400" placeholder="Frage..." required>
+                <p class="text-base">Antwort</p>
+                <input id="solutionInput" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 placeholder-gray-400" placeholder="Lösung..." required>            
+                <button id="submitButton" onclick="submit()" type="button" class="bg-green-400 hover:bg-green-500 font-medium rounded-lg text-sm px-3 py-2 my-3">Einreichen</button>
+                <p id="statusText"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const solutionInput = document.getElementById("solutionInput");
+        const questionInput = document.getElementById("questionInput");
+        const statusText = document.getElementById("statusText");
+
+        function submit() {
+            if(questionInput != "" && solutionInput != "") {
+                const data = {
+                    question: questionInput.value,
+                    solution: solutionInput.value
+                }
+                fetch("http://localhost:3000/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if(response.status === 200) {
+                        statusText.innerText = "Erfolgreich hinzugefügt";
+                    } else {
+                        statusText.innerText = "Fehler aufgetreten!";
+                    }
+                })
+            }
+        }
+    </script>
+</body>
+</html>
