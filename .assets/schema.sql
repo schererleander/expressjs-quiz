@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for macos13 (x86_64)
 --
 -- Host: localhost    Database: questions
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.2.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `allgemein`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `allgemein` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `question` text,
   `solution` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `allgemein` (
 
 LOCK TABLES `allgemein` WRITE;
 /*!40000 ALTER TABLE `allgemein` DISABLE KEYS */;
-INSERT INTO `allgemein` VALUES (1,'Was ist die Hauptstadt von Deutschland?','Berlin'),(2,'Welches Element hat das chemische Symbol H?','Wasserstoff'),(3,'Wer malte das berühmte Gemälde Mona Lisa?','Leonardo da Vinci'),(4,'Wie heißt der längste Fluss in Deutschland?','Elbe'),(5,'Wie viele Planeten gibt es in unserem Sonnensystem?','8'),(6,'Welcher ist der größte Planet in unserem Sonnensystem?','Jupiter'),(7,'Wie heißt die größte Sandwüste der Welt?','Sahara');
+INSERT INTO `allgemein` VALUES (1,'Was ist die Hauptstadt von Deutschland?','Berlin'),(2,'Welches Element hat das chemische Symbol H?','Wasserstoff'),(3,'Wer malte das berühmte Gemälde Mona Lisa?','Leonardo da Vinci'),(4,'Wie heißt der längste Fluss in Deutschland?','Elbe'),(5,'Wie viele Planeten gibt es in unserem Sonnensystem?','8'),(6,'Welcher ist der größte Planet in unserem Sonnensystem?','Jupiter'),(7,'Wie heißt die größte Sandwüste der Welt?','Sahara'),(8,'In welcher Stadt steht der Eifelturm?','Paris'),(9,'Welche Stadt ist die Hauptstadt von Japan?','Tokyo'),(10,'Welches ist das größte Säugetier der Welt?','Blauwal'),(11,'Wie viele Kontinente gibt es auf der Erde?','7');
 /*!40000 ALTER TABLE `allgemein` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-15 12:41:18
+-- Dump completed on 2023-12-16 21:17:05
