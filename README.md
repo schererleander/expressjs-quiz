@@ -3,16 +3,18 @@
 QuizMe is a dynamic quiz website that utilizes JavaScript to fetch questions from a MySQL database and validate user answers
 
 ## 🖼️ Screenshots:
-![QuizMe Screenshot](./.assets/screenshot.png)
+![startpage](./.assets/startpage.png)
+![resultpage](./.assets/result.png)
+![quizpage](./.assets/quiz.png)
 
 ## 🛠️ Technologies:
 - MySQL stores quiz data
-- JavaScript fetches question and validates answers
+- JavaScript fetches/submit questions and validates answers
 - Tailwind CSS for fast and simple styling
 
 ## 🚀 Getting Started:
 1. Clone the repository: `git clone https://github.com/your-username/QuizMe.git`
-2. Set up MySQL with the required [schema](./.assets/schema.sql).
+2. Set up MySQL with the required [schema.sql](./.assets/schema.sql).
 3. Update JavaScript code for MySQL connection.
 4. Open `index.html` in a browser to run the application.
 
