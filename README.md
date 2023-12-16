@@ -3,9 +3,8 @@
 QuizMe is a dynamic quiz website that utilizes JavaScript to fetch questions from a MySQL database and validate user answers
 
 ## 🖼️ Screenshots:
-![startpage](./.assets/startpage.png)
-![resultpage](./.assets/result.png)
 ![quizpage](./.assets/quiz.png)
+[more image](./.assets)
 
 ## 🛠️ Technologies:
 - MySQL stores quiz data
