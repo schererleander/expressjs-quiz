@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
-    </head>
-    <body class="bg-white w-screen min-h-screen">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-100 border border-gray-300 w-px h-20 rounded-lg">
+</head>
+<body class="bg-white w-screen h-screen">
+    <div class="flex flex-row h-screen justify-center items-center">
+        <div class="bg-gray-100 border m-14 border-gray-300 w-1/4 rounded-lg">
             <div class="m-5 text-black">
-                <div id="questionCount" class="mb-1">...</div>
-                <div class="w-full bg-gray-50 rounded-full h-1.5 mb-4">
-                    <div class="bg-green-400 h-1.5 rounded-full" style="width: 45%"></div>
-                </div>
-                <h1 id="question" class="mt-10">...</h1>
-                <input id="answerInput" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 placeholder-gray-400" placeholder="Antwort..." required>
-                <button id="next" type="button" class="bg-green-400 hover:bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 my-3">Überprüfen</button>
+                <p class="text-2xl">QuizMe 🎓</p>
+                <button type="button" onclick="redirectToPage('quiz.html')" class="bg-green-400 hover:bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 my-3">Quiz starten!</button>
+                <button type="button" onclick="redirectToPage('submit.html')" class="bg-green-400 hover:bg-green-500 font-medium rounded-lg text-sm px-5 py-2.5 my-3">Fragen hinzufügen</button>
             </div>
         </div>
-    </body>
-    <script type="module" src="client.js?v=129"></script> <!--//v=... because my browser uses the old client.js for what reason beside hard reloading-->
+    </div>
+    <script>
+        function redirectToPage(page) {
+            // Redirect to given page
+            window.location.href = page;
+        }
+    </script>
+</body>
 </html>
