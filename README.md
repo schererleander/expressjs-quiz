@@ -4,7 +4,7 @@ QuizMe is a dynamic quiz website that utilizes JavaScript to fetch questions fro
 
 ## 🖼️ Screenshots:
 ![quizpage](./.assets/quiz.png)
-[➕ more image](./.assets/screenshots.md)
+[more images](./.assets/screenshots.md)
 
 ## 🛠️ Technologies:
 - MySQL stores quiz data
