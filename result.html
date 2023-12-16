@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-white w-screen h-screen">
+    <div class="flex flex-row h-screen justify-center items-center">
+        <div class="bg-gray-100 border m-14 border-gray-300 w-1/4 rounded-lg">
+            <div class="m-5 text-black">
+                <p class="text-2xl text-green-500">Ergebnis</p>
+                <p id="result" class="text-base">... von ... richtige Fragen!</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const correctAnswers = urlParams.get("correct");
+        const totalAnswers = urlParams.get("total");
+
+        document.getElementById("result").innerText = correctAnswers + " von " + totalAnswers + " Fragen richtig!";
+    </script>
+</body>
+</html>
