@@ -7,8 +7,7 @@ const app = express();
 
 // Enable CORS for all routes (allow all origins)
 app.use(cors({ origin: '*' }));
-
-let topic = "allgemein";
+app.use(express.json());
 
 var con = mysql.createPool({
   host: "localhost",
@@ -17,8 +16,9 @@ var con = mysql.createPool({
   database: "questions"
 });
 
-app.get("/database", (req, res) => {
-  const query = "SELECT * FROM " + topic;
+
+app.get("/retrieve", (req, res) => {
+  const query = "SELECT * FROM allgemein";
 
   con.query(query, (error, results) => {
     if (error) {
@@ -29,6 +29,20 @@ app.get("/database", (req, res) => {
     res.json(results);
   });
 });
+
+app.post("/submit", (req, res) => {
+  const { question, solution} = req.body;
+  console.log("Received data:", {question, solution});
+
+  const insertQuery = "INSERT INTO allgemein (question, solution) VALUES ('" + question + "','" + solution + "')";
+  con.query(insertQuery, (error, results) => {
+    if(error) {
+      console.error("ERROR inserting data into database");
+      console.error(error);
+      res.status(500).send("Internal Server error!")
+    } else res.status(200).send("Data received successfully!"); 
+  })
+})
 
 const PORT = 3000;
 app.listen(PORT, () => {
