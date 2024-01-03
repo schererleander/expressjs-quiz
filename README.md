@@ -13,10 +13,11 @@ QuizMe is a dynamic quiz website that utilizes JavaScript to fetch questions fro
 
 ## 🚀 Getting Started:
 1. Clone the repository: `git clone https://github.com/schererleander/QuizMe.git`
-2. Set up MySQL with the required [schema.sql](./.assets/schema.sql).
-3. Update `server.js` with the information specific to your MySQL server.
-4. Run `npm run server.js` in the git directory. 
-4. Open `localhost:3000` in a browser.
+2. Install dependencies by running `npm install`
+3. Set up MySQL with the required [schema.sql](./.assets/schema.sql).
+4. Update `server.js` with the information specific to your MySQL server.
+5. Run `npm run server.js` in the git directory. 
+6. Open `localhost:3000` in a browser.
 
 ## 📚 References:
 I used the following external resources for help in creating this project:
