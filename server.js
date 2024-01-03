@@ -9,6 +9,10 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
+
+// ----------------------
+// ⚠️ Change with the information specific to your MySQL server ⚠️
+// ----------------------
 var con = mysql.createPool({
   host: "localhost",
   user: "root",
@@ -16,6 +20,8 @@ var con = mysql.createPool({
   database: "questions"
 });
 
+
+app.use(express.static(__dirname));
 
 app.get("/retrieve", (req, res) => {
   const query = "SELECT * FROM allgemein";
@@ -28,6 +34,14 @@ app.get("/retrieve", (req, res) => {
     }
     res.json(results);
   });
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+  if (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 app.post("/submit", (req, res) => {

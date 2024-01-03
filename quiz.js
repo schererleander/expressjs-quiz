@@ -4,6 +4,7 @@ function updateText(currentQuestionId, totalQuestions, currentQuestion) {
 
     //+ 1 because the computer start counting at 0
     questionCountElement.innerText = (currentQuestionId+1) + " von " + (totalQuestions+1) + " Fragen";
+    document.title = (currentQuestionId+1) + ".Frage - QuizMe";
     questionElement.innerText = currentQuestion;
 }
 
