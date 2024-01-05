@@ -1,18 +1,31 @@
 const express = require('express');
-const mysql = require('mysql2');
-const cors = require('cors');
-
-// Create an Express application
 const app = express();
 
-// Enable CORS for all routes (allow all origins)
-app.use(cors({ origin: '*' }));
-app.use(express.json());
+app.use((req, res, next) => {
+  console.log("HTTP " + req.method + " " + req.url);
+  console.log("Request Headers:", req.headers);
+  console.log("Request Body:", req.body);
 
+  res.on('finish', () => {
+    console.log(res.statusCode + ":" + res.statusMessage);
+    console.log('Response Headers:', res.getHeaders());
+    console.log("body:", res.body);
+  });
+
+  next();
+});
+
+app.use(express.json())
+
+// Enable CORS for all routes (allow all origins)
+const cors = require('cors');
+app.use(cors({ origin: '*' }));
+app.use(express.static(__dirname));
 
 // ----------------------
 // ⚠️ Change with the information specific to your MySQL server ⚠️
 // ----------------------
+const mysql = require('mysql2');
 var con = mysql.createPool({
   host: "0.0.0.0",
   user: "root",
@@ -20,19 +33,16 @@ var con = mysql.createPool({
   database: "questions"
 });
 
-
-app.use(express.static(__dirname));
-
 app.get("/retrieve", (req, res) => {
+
   const query = "SELECT * FROM allgemein";
 
   con.query(query, (error, results) => {
-    if (error) {
+    if (!error) {
       console.error("ERROR query:", error);
       res.status(500).send("Internal server error!");
       return;
-    }
-    res.json(results);
+    } else res.json(results);
   });
 });
 
