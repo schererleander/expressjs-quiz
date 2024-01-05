@@ -28,7 +28,7 @@ var validateButton = document.getElementById("validateButton");
 validateButton.addEventListener("click", validate);
 input.addEventListener("keypress", function(event) {
     if(event.key === "Enter") validate();
-})
+});
 
 function startTimer() {
     if(timeLimit == 0) return;
@@ -83,8 +83,8 @@ function validate() {
     if(timeLimit != 0) secondLeft = timeLimit;
     
     if(currentQuestionId > totalQuestions) {
-        const queryString = "result.html" + "?correct=" + encodeURIComponent(correctAnswers) + "&total=" + encodeURIComponent(totalQuestions+1);
-        window.location.href = queryString;
+        const redirect = "result.html" + "?correct=" + encodeURIComponent(correctAnswers) + "&total=" + encodeURIComponent(totalQuestions+1);
+        window.location.href = redirect;
     }
     updateQuestion();
 }

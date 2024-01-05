@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const cors = require('cors');
 
 // Create an Express application
@@ -14,9 +14,9 @@ app.use(express.json());
 // ⚠️ Change with the information specific to your MySQL server ⚠️
 // ----------------------
 var con = mysql.createPool({
-  host: "localhost",
+  host: "0.0.0.0",
   user: "root",
-  password: "wibso3-rIdwaz-dejrob",
+  password: "root",
   database: "questions"
 });
 
