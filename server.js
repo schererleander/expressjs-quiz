@@ -38,7 +38,7 @@ app.get("/retrieve", (req, res) => {
   const query = "SELECT * FROM allgemein";
 
   con.query(query, (error, results) => {
-    if (!error) {
+    if (error) {
       console.error("ERROR query:", error);
       res.status(500).send("Internal server error!");
       return;
