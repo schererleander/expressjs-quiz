@@ -1,6 +1,6 @@
-# 🎓 QuizMe - Interactive Quiz Website
+# 🎓 expressjs-quiz - Interactive Quiz Website
 
-QuizMe is a dynamic quiz website that utilizes JavaScript to fetch questions from a MySQL database and validate user answers
+ExpressJS-Quiz is a dynamic quiz website that utilizes JavaScript to fetch questions from a MySQL database and validate user answers
 
 ## 🖼️ Screenshots:
 ![quizpage](./.assets/quiz.png)
