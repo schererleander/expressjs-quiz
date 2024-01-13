@@ -28,6 +28,7 @@ app.use(express.static(__dirname));
 const mysql = require('mysql2');
 var con = mysql.createPool({
   host: "0.0.0.0",
+  port: 3306,
   user: "root",
   password: "root",
   database: "questions"

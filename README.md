@@ -6,11 +6,6 @@ QuizMe is a dynamic quiz website that utilizes JavaScript to fetch questions fro
 ![quizpage](./.assets/quiz.png)
 [more images](./.assets/screenshots.md)
 
-## 🛠️ Technologies:
-- MySQL stores quiz data
-- Express for fetching and submiting questions
-- Tailwind CSS for fast and simple styling
-
 ## 🚀 Getting Started:
 1. Clone the repository: `git clone https://github.com/schererleander/QuizMe.git`
 2. Install dependencies by running `npm install`
@@ -25,5 +20,3 @@ I used the following external resources for help in creating this project:
 - [MySQL Database creation and alteration](https://www.w3schools.com/MySQL/mysql_create_db.asp)
 - [Getting started with Express](https://expressjs.com/en/starter/hello-world.html)
 - [Express Routing](https://expressjs.com/en/guide/routing.html)
-
-🎉 **Happy quizzing!**
