@@ -16,10 +16,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json())
-
-// Enable CORS for all routes (allow all origins)
-const cors = require('cors');
-app.use(cors({ origin: '*' }));
 app.use(express.static(__dirname));
 
 // ----------------------
