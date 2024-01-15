@@ -1,17 +1,16 @@
-# 🎓 expressjs-quiz - Interactive Quiz Website
+# 🎓 expressjs-quiz
 
-ExpressJS-Quiz is a dynamic quiz website that utilizes JavaScript to fetch questions from a MySQL database and validate user answers
+ExpressJS-Quiz is a dynamic quiz website that utilizes JavaScript to fetch questions from a MySQL database and validate user answers.
 
 ## 🖼️ Screenshots:
 ![quizpage](./.assets/quiz.png)
-[more images](./.assets/screenshots.md)
 
 ## 🚀 Getting Started:
-1. Clone the repository: `git clone https://github.com/schererleander/QuizMe.git`
+1. Clone the repository: `git clone https://github.com/schererleander/expressjs-quiz`
 2. Install dependencies by running `npm install`
 3. Set up MySQL with the required [schema.sql](./.assets/schema.sql).
 4. Update `server.js` with the information specific to your MySQL server.
-5. Run `npm run server.js` in the git directory. 
+5. Run `node server.js` in the git directory. 
 6. Open `localhost:3000` in a browser.
 
 ## 📚 References:
